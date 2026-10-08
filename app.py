@@ -303,14 +303,14 @@ if mode == "Browse":
         page_size = 25
         total_pages = (total_results + page_size - 1) // page_size
 
-        st.markdown(f"<p class='muted-text tabular-num'>Showing {start_idx + 1} to {end_idx} of {total_results} matching posts</p>", unsafe_allow_html=True)
-
         col_pg1, col_pg2 = st.columns([1, 4])
         with col_pg1:
             page = st.number_input("Page number", min_value=1, max_value=total_pages, value=1, step=1, label_visibility="collapsed")
 
         start_idx = (page - 1) * page_size
         end_idx = min(start_idx + page_size, total_results)
+
+        st.markdown(f"<p class='muted-text tabular-num'>Showing {start_idx + 1} to {end_idx} of {total_results} matching posts</p>", unsafe_allow_html=True)
         page_items = results[start_idx:end_idx]
 
         # Table data preparation
@@ -368,7 +368,10 @@ if mode == "Browse":
         with col_undo:
             if last_corr:
                 if st.button("Undo last change", key="undo_browse"):
-                    c_undo.execute("UPDATE reels SET category = ?, manually_corrected = 0, needs_review = 1, reviewed = 0 WHERE id = ?", (last_corr["old_category"], last_corr["post_id"]))
+                    old_nr = last_corr["old_needs_review"] if last_corr["old_needs_review"] is not None else 1
+                    old_rev = last_corr["old_reviewed"] if last_corr["old_reviewed"] is not None else 0
+                    old_mc = last_corr["old_manually_corrected"] if last_corr["old_manually_corrected"] is not None else 0
+                    c_undo.execute("UPDATE reels SET category = ?, manually_corrected = ?, needs_review = ?, reviewed = ? WHERE id = ?", (last_corr["old_category"], old_mc, old_nr, old_rev, last_corr["post_id"]))
                     c_undo.execute("DELETE FROM corrections WHERE id = ?", (last_corr["id"],))
                     conn_undo.commit()
                     st.toast("Last change undone!")
@@ -384,10 +387,10 @@ if mode == "Browse":
                 conn_b = get_db()
                 c_b = conn_b.cursor()
                 for pid in selected_ids:
-                    # Get old category for correction log
-                    c_b.execute("SELECT category FROM reels WHERE id = ?", (pid,))
-                    old_cat = c_b.fetchone()["category"]
-                    c_b.execute("INSERT INTO corrections (post_id, old_category, new_category, timestamp) VALUES (?, ?, ?, datetime('now'))", (pid, old_cat, target_cat))
+                    # Get old state for correction log
+                    c_b.execute("SELECT category, needs_review, reviewed, manually_corrected FROM reels WHERE id = ?", (pid,))
+                    old_row = c_b.fetchone()
+                    c_b.execute("INSERT INTO corrections (post_id, old_category, new_category, timestamp, old_needs_review, old_reviewed, old_manually_corrected) VALUES (?, ?, ?, datetime('now'), ?, ?, ?)", (pid, old_row["category"], target_cat, old_row["needs_review"], old_row["reviewed"], old_row["manually_corrected"]))
                     c_b.execute("UPDATE reels SET category = ?, manually_corrected = 1, needs_review = 0, reviewed = 1 WHERE id = ?", (target_cat, pid))
                 conn_b.commit()
                 conn_b.close()
@@ -407,10 +410,10 @@ if mode == "Browse":
                     if single_id.strip():
                         conn_s = get_db()
                         c_s = conn_s.cursor()
-                        c_s.execute("SELECT category FROM reels WHERE id = ?", (single_id.strip(),))
-                        old_cat_row = c_s.fetchone()
-                        old_cat = old_cat_row["category"] if old_cat_row else None
-                        c_s.execute("INSERT INTO corrections (post_id, old_category, new_category, timestamp) VALUES (?, ?, ?, datetime('now'))", (single_id.strip(), old_cat, single_cat))
+                        c_s.execute("SELECT category, needs_review, reviewed, manually_corrected FROM reels WHERE id = ?", (single_id.strip(),))
+                        old_row = c_s.fetchone()
+                        if old_row:
+                            c_s.execute("INSERT INTO corrections (post_id, old_category, new_category, timestamp, old_needs_review, old_reviewed, old_manually_corrected) VALUES (?, ?, ?, datetime('now'), ?, ?, ?)", (single_id.strip(), old_row["category"], single_cat, old_row["needs_review"], old_row["reviewed"], old_row["manually_corrected"]))
                         c_s.execute("UPDATE reels SET category = ?, manually_corrected = 1, needs_review = 0, reviewed = 1 WHERE id = ?", (single_cat, single_id.strip()))
                         conn_s.commit()
                         conn_s.close()
@@ -491,7 +494,7 @@ elif mode == "Review queue":
             if st.button("Confirm and next", type="primary", key=f"confirm_btn_{curr_post['id']}"):
                 conn_r = get_db()
                 c_r = conn_r.cursor()
-                c_r.execute("INSERT INTO corrections (post_id, old_category, new_category, timestamp) VALUES (?, ?, ?, datetime('now'))", (curr_post['id'], curr_post['category'], new_cat_sel))
+                c_r.execute("INSERT INTO corrections (post_id, old_category, new_category, timestamp, old_needs_review, old_reviewed, old_manually_corrected) VALUES (?, ?, ?, datetime('now'), ?, ?, ?)", (curr_post['id'], curr_post['category'], new_cat_sel, curr_post.get('needs_review'), curr_post.get('reviewed'), curr_post.get('manually_corrected')))
                 c_r.execute("UPDATE reels SET category = ?, manually_corrected = 1, needs_review = 0, reviewed = 1 WHERE id = ?", (new_cat_sel, curr_post['id']))
                 conn_r.commit()
                 conn_r.close()
@@ -518,7 +521,10 @@ elif mode == "Review queue":
             if last_corr:
                 st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
                 if st.button("Undo last change", key=f"undo_btn_{curr_post['id']}"):
-                    c_u.execute("UPDATE reels SET category = ?, manually_corrected = 0, needs_review = 1, reviewed = 0 WHERE id = ?", (last_corr["old_category"], last_corr["post_id"]))
+                    old_nr = last_corr["old_needs_review"] if last_corr["old_needs_review"] is not None else 1
+                    old_rev = last_corr["old_reviewed"] if last_corr["old_reviewed"] is not None else 0
+                    old_mc = last_corr["old_manually_corrected"] if last_corr["old_manually_corrected"] is not None else 0
+                    c_u.execute("UPDATE reels SET category = ?, manually_corrected = ?, needs_review = ?, reviewed = ? WHERE id = ?", (last_corr["old_category"], old_mc, old_nr, old_rev, last_corr["post_id"]))
                     c_u.execute("DELETE FROM corrections WHERE id = ?", (last_corr["id"],))
                     conn_u.commit()
                     st.session_state.toast_msg = "Last change undone!"
