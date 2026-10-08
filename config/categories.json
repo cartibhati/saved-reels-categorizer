@@ -1,0 +1,377 @@
+{
+  "note": "Share estimates removed/marked unreliable: sample was biased toward my collections",
+  "categories": [
+    {
+      "name": "Work & AI Tools",
+      "definition": "Productivity software, AI tools, presentation tricks, and tech hacks to optimize daily work and tasks.",
+      "include": [
+        "Software tools, AI apps, website recommendations",
+        "PowerPoint/presentation tricks, productivity hacks",
+        "Workflow automation, AI prompts, Excel/Notion tips"
+      ],
+      "exclude": [
+        "Software programming/code writing (goes to Coding & Tech Development)",
+        "Machine learning/data science code (goes to Coding & Tech Development)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Coding & Tech Development",
+      "definition": "Programming tutorials, software development, web dev, machine learning, and GitHub projects.",
+      "include": [
+        "Writing code, programming languages (Python, JS, C++, etc.)",
+        "Machine learning, deep learning, AI algorithms",
+        "Web development, open-source repositories, GitHub, developer tools"
+      ],
+      "exclude": [
+        "Generic non-coding productivity apps or AI tools (goes to Work & AI Tools)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Career & Interview Prep",
+      "definition": "Job search strategies, resume building, interview preparation, placement tips, and salary negotiation.",
+      "include": [
+        "Resume/CV building, LinkedIn optimization",
+        "Coding interview questions, behavioral interview tips",
+        "Job hunting, career growth, internship/placement advice"
+      ],
+      "exclude": [
+        "Sales & freelancing client outreach (goes to Sales & Business Growth)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Sales & Business Growth",
+      "definition": "Entrepreneurship, freelancing, cold outreach, trading, marketing, and business scaling.",
+      "include": [
+        "Sales scripts, cold messaging, client closing tips",
+        "Freelancing, agency business, e-commerce, trading/investing strategies",
+        "Marketing strategy, agency scaling"
+      ],
+      "exclude": [
+        "Job interview / corporate resume tips (goes to Career & Interview Prep)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Calisthenics & Bodyweight Training",
+      "definition": "Reserved strictly for bodyweight and street workout content.",
+      "include": [
+        "Bodyweight skills, planches, muscle-ups, street workout"
+      ],
+      "exclude": [
+        "Weightlifting, machines, barbell (goes to Fitness & Gym Motivation)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Fitness & Gym Motivation",
+      "definition": "Gym workouts, weightlifting, physique updates, body transformation, nutrition, and workout motivation.",
+      "include": [
+        "Weightlifting, dumbbell/barbell workouts, gym machines",
+        "Physique showcases, bodybuilding, gym transformation",
+        "High-protein diet/nutrition for muscle building",
+        "Gym motivation/edits (use Fitness even if caption is motivational as long as it is about gym/lifting/physique)"
+      ],
+      "exclude": [
+        "Bodyweight calisthenics workouts (goes to Calisthenics & Bodyweight Training)",
+        "Non-fitness mindset/discipline posts (goes to Self-Improvement & Motivation)",
+        "Dance tutorials or choreography (goes to Dance & Performing Arts)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Marvel & Superhero Edits",
+      "definition": "Fan edits, cinematic clips, and digital art centered on MCU, DC, or superhero characters.",
+      "include": [
+        "Any edit centered on MCU, Avengers, Spider-Man, Batman, DC, or superhero characters",
+        "Behind the scenes, comic book movie edits"
+      ],
+      "exclude": [
+        "Non-superhero movie or TV show edits (goes to Movie, TV & Anime Fan Edits)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Movie, TV & Anime Fan Edits",
+      "definition": "Fan edits of TV shows, movies, actors, animation, anime, and nostalgia clips (non-superhero).",
+      "include": [
+        "Non-superhero movie clips and fan edits (e.g. Friends, Oppenheimer, Peaky Blinders)",
+        "Anime edits, aesthetic film cinematography edits",
+        "Celebrity/actor edit clips and aesthetic film clips"
+      ],
+      "exclude": [
+        "Marvel, DC, or superhero edits (goes to Marvel & Superhero Edits)",
+        "Music-led artist / lyric edits (goes to Music & Lyric Edits)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Movie & Series Recommendations",
+      "definition": "Curated watchlists, film reviews, cinema recommendations, and TV show rankings.",
+      "include": [
+        "Lists of movies/series to watch ('Top 5 Thrillers on Netflix')",
+        "Film suggestions, plot summaries, cinema reviews"
+      ],
+      "exclude": [
+        "Edits focusing purely on aesthetic music/clips without recommendation context (goes to Movie, TV & Anime Fan Edits)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Dating, Flirting & Relationships (Rizz)",
+      "definition": "Flirting techniques, relationship advice, long-distance relationship moments, rizz lines, and romance.",
+      "include": [
+        "Flirting/rizz lines, text conversation breakdowns",
+        "Couple goals, long-distance relationship (LDR) ideas",
+        "Relationship advice, dating tips and humor"
+      ],
+      "exclude": [
+        "Solo self-improvement mindset tips (goes to Self-Improvement & Motivation)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Self-Improvement & Motivation",
+      "definition": "Mindset shifts, self-discipline, personal growth, daily habits, and non-fitness life wisdom.",
+      "include": [
+        "Mindset, focus, discipline, overcoming laziness",
+        "Philosophical quotes, stoicism, life advice",
+        "Non-fitness personal development",
+        "Study and student content (#studygram, #mathematics)"
+      ],
+      "exclude": [
+        "Gym, lifting, physique, or workout posts (goes to Fitness & Gym Motivation even if motivational)",
+        "Aesthetic vibe posts without self-improvement/study focus"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Girl Edits (Typeshi)",
+      "definition": "Edits, fancams, and aesthetic clips centered on women (actresses, models, creators, characters).",
+      "include": [
+        "Fancams and edits of women, actresses, female models, female characters",
+        "Aesthetic video clips centered on women"
+      ],
+      "exclude": [
+        "General non-female movie/show fan edits (goes to Movie, TV & Anime Fan Edits)",
+        "Marvel or superhero edits (goes to Marvel & Superhero Edits)"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/",
+        "https://www.instagram.com/reel/example2/"
+      ]
+    },
+    {
+      "name": "Content Creation & Video Editing Tips",
+      "definition": "Advice, tools, and tutorials for video editing, filming, photography, and content creation.",
+      "include": [
+        "Video editing apps (CapCut, Premiere)",
+        "Camera and lighting setups",
+        "Content strategy and engagement tips"
+      ],
+      "exclude": [
+        "General work/AI productivity tools (goes to Work & AI Tools)"
+      ],
+      "example_urls": []
+    },
+    {
+      "name": "Humor & Memes",
+      "definition": "Comedy skits, memes, pranks, and relatable jokes.",
+      "include": [
+        "Comedy skits, stand-up clips, relatable text-based jokes",
+        "Pranks, funny fails"
+      ],
+      "exclude": [
+        "Fan edits of actors or shows without explicit humor (goes to Movie, TV & Anime Fan Edits)",
+        "Movie facts (goes to Movie & Series Recommendations)",
+        "Non-English reposts without clear humor (goes to Other/Catch-all)"
+      ],
+      "example_urls": []
+    },
+    {
+      "name": "Poetry & Quotes",
+      "definition": "Spoken word, romantic quotes, deep poetry, and text-based quote graphics.",
+      "include": [
+        "Poetry reading, deep emotional quotes",
+        "Text overlay aesthetic quotes"
+      ],
+      "exclude": [
+        "Motivational discipline quotes (goes to Self-Improvement & Motivation)"
+      ],
+      "example_urls": []
+    },
+    {
+      "name": "Music & Lyric Edits",
+      "definition": "Music-led posts, artist/lyric/song-driven edits (e.g. Radiohead, One Direction), song recommendations, and instrumental playing.",
+      "include": [
+        "Artist/lyric/song-driven edits (e.g. Radiohead, One Direction, lyric edits)",
+        "Music-led posts, song recommendations",
+        "Live performances, guitar/piano covers",
+        "Song discovery, music production, lyric videos"
+      ],
+      "exclude": [
+        "Movie & Series Recommendations (if it's about the movie watchlists, use Movie & Series Recommendations)"
+      ],
+      "example_urls": []
+    },
+    {
+      "name": "Fashion & Grooming",
+      "definition": "Clothing hauls, styling tips, grooming routines, and fashion.",
+      "include": [
+        "Outfit of the day (OOTD), styling advice",
+        "Skincare, haircuts, and grooming"
+      ],
+      "exclude": [
+        "General aesthetic vibe videos without fashion focus (goes to Aesthetic & Lifestyle Vibe (Typeshi))"
+      ],
+      "example_urls": []
+    },
+    {
+      "name": "Travel & Places",
+      "definition": "Travel hacks, destinations, itineraries, cultural festivals, and places.",
+      "include": [
+        "Travel guides, holiday destinations",
+        "Cultural festivals, landmarks, city tours",
+        "Travel hacks, hotel/flight tips"
+      ],
+      "exclude": [],
+      "example_urls": []
+    },
+    {
+      "name": "Dance & Performing Arts",
+      "definition": "Choreography, hook step tutorials, dance trends, and stage performances.",
+      "include": [
+        "Hook step tutorials, choreography",
+        "Dance trends, Bollywood or song-based dance reels",
+        "Hip-hop, classical, or urban dance performances"
+      ],
+      "exclude": [
+        "Fitness/gym workouts (goes to Fitness & Gym Motivation)",
+        "Movie scenes that just happen to have dancing but are movie fan edits (goes to Movie, TV & Anime Fan Edits)"
+      ],
+      "example_urls": []
+    },
+    {
+      "name": "Other / Catch-all",
+      "definition": "Miscellaneous posts that do not fit into any specific category.",
+      "include": [
+        "Unique magic tricks, unusual hobbies, isolated random clips"
+      ],
+      "exclude": [
+        "Any post that clearly fits one of the specific categories above"
+      ],
+      "example_urls": [
+        "https://www.instagram.com/reel/example1/"
+      ]
+    }
+  ],
+  "collection_mappings": [
+    {
+      "collection_name": "Sales",
+      "mapped_category": "Sales & Business Growth",
+      "status": "confirmed",
+      "notes": "Direct match for business, side hustles, and sales."
+    },
+    {
+      "collection_name": "The dream",
+      "mapped_category": "Self-Improvement & Motivation",
+      "status": "confirmed",
+      "notes": "Focuses on discipline, consistency, and personal goals."
+    },
+    {
+      "collection_name": "Presentation",
+      "mapped_category": "Work & AI Tools",
+      "status": "confirmed",
+      "notes": "PowerPoint tricks and presentation hacks fit under productivity tools."
+    },
+    {
+      "collection_name": "resume",
+      "mapped_category": "Career & Interview Prep",
+      "status": "confirmed",
+      "notes": "Direct match for CV building and career advancement."
+    },
+    {
+      "collection_name": "Typeshi",
+      "mapped_category": "Girl Edits (Typeshi)",
+      "status": "confirmed",
+      "notes": "Confirmed by user: edits, fancams and aesthetic clips centered on women."
+    },
+    {
+      "collection_name": "Calisthenics",
+      "mapped_category": "Calisthenics & Bodyweight Training",
+      "status": "confirmed",
+      "notes": "Direct 1:1 match for bodyweight strength and street workouts."
+    },
+    {
+      "collection_name": "LDR",
+      "mapped_category": "Dating, Flirting & Relationships (Rizz)",
+      "status": "confirmed",
+      "notes": "Long-distance relationship content."
+    },
+    {
+      "collection_name": "1D\u2665\ufe0f",
+      "mapped_category": "Music & Lyric Edits",
+      "status": "confirmed",
+      "notes": "Dedicated to One Direction and music/lyric edits."
+    },
+    {
+      "collection_name": "\ud83d\udc40",
+      "mapped_category": "Dating, Flirting & Relationships (Rizz)",
+      "status": "unconfirmed",
+      "notes": "Unconfirmed by user - EXCLUDE from few-shots and eval."
+    },
+    {
+      "collection_name": "Avengers",
+      "mapped_category": "Marvel & Superhero Edits",
+      "status": "confirmed",
+      "notes": "Direct match for MCU and superhero fan edits."
+    },
+    {
+      "collection_name": "RiZZ",
+      "mapped_category": "Dating, Flirting & Relationships (Rizz)",
+      "status": "confirmed",
+      "notes": "Flirting lines, rizz moments, and dating humor."
+    },
+    {
+      "collection_name": "Theme page",
+      "mapped_category": "Other / Catch-all",
+      "status": "unconfirmed",
+      "notes": "Unconfirmed by user - EXCLUDE from few-shots and eval."
+    }
+  ]
+}
